@@ -14,8 +14,6 @@
  <dependencies>
 		 
 	
-		
-
 		<dependency>
 			<groupId>com.imixs.workflow</groupId>
 			<artifactId>imixs-office-workflow-web</artifactId>
@@ -23,6 +21,25 @@
 		</dependency>
 		
 		
+			
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-workflow-faces</artifactId>
+		</dependency>
+		
+		
+		 	 	
+		<dependency>
+			<groupId>org.imixs.marty</groupId>
+			<artifactId>imixs-marty-util</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-ejb</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
 		
 		
 	</dependencies>  

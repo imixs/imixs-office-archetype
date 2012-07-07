@@ -4,15 +4,28 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 <requiredProperties>
-        <requiredProperty key="jta-data-source">
+        <requiredProperty key="jtaDataSource">
                 <defaultValue>jdbc/imixs_office</defaultValue>
         </requiredProperty>
-        <requiredProperty key="realm">
+        <requiredProperty key="realmName">
                 <defaultValue>imixsrealm</defaultValue>
         </requiredProperty>
-        <requiredProperty key="context-root">
+        <requiredProperty key="contextRoot">
                 <defaultValue>office</defaultValue>
+        </requiredProperty>   
+        
+         <requiredProperty key="versionNumber-workflow">
+                <defaultValue>3.0.2</defaultValue>
+        </requiredProperty>   
+        
+         <requiredProperty key="versionNumber-marty">
+                <defaultValue>1.1.1-RC-3</defaultValue>
         </requiredProperty>             
+        
+         <requiredProperty key="versionNumber-office">
+                <defaultValue>1.1.1-RC-2</defaultValue>
+        </requiredProperty>
+        
  </requiredProperties>
  
   <fileSets>

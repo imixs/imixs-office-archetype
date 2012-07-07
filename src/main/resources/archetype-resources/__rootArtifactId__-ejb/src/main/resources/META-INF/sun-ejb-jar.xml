@@ -6,9 +6,18 @@
 <sun-ejb-jar>
 	<enterprise-beans>
 	
+	
 		<!-- RunAs declaration -->
 		<ejb>
 			<ejb-name>SequenceService</ejb-name>
+			<principal>
+				<name>WorkflowScheduler</name>
+			</principal>
+		</ejb>
+		
+		
+		<ejb>
+			<ejb-name>DmsSchedulerService</ejb-name>
 			<principal>
 				<name>WorkflowScheduler</name>
 			</principal>

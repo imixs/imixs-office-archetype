@@ -31,5 +31,5 @@
 		<principal-name>WorkflowScheduler</principal-name>
 		<group-name>IMIXS-WORKFLOW-Manager</group-name>
 	</security-role-mapping>
-	<realm>imixsrealm</realm>
+	<realm>${realmName}</realm>
 </sun-application>
