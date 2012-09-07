@@ -19,11 +19,11 @@
         </requiredProperty>   
         
          <requiredProperty key="versionNumber-marty">
-                <defaultValue>1.1.1-RC-3</defaultValue>
+                <defaultValue>1.1.1-FINAL</defaultValue>
         </requiredProperty>             
         
          <requiredProperty key="versionNumber-office">
-                <defaultValue>1.1.1-RC-2</defaultValue>
+                <defaultValue>1.1.1-RC-3</defaultValue>
         </requiredProperty>
         
  </requiredProperties>

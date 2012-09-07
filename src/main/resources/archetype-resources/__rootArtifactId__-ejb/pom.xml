@@ -22,7 +22,7 @@
 						<!-- add the EJB module imixs-workflow-jee-impl 
 						 -->
 						<manifestEntries>
-							<Class-Path>imixs-workflow-engine-${versionNumber-workflow}.jar imixs-workflow-core-${versionNumber-workflow}.jar imixs-marty-ejb-${versionNumber-marty}.jar lucene-core-3.1.0.jar</Class-Path>
+							<Class-Path>imixs-workflow-engine-${versionNumber-workflow}.jar imixs-workflow-core-${versionNumber-workflow}.jar imixs-marty-ejb-${versionNumber-marty}.jar imixs-office-workflow-ejb-${versionNumber-office}.jar lucene-core-3.1.0.jar</Class-Path>
 						</manifestEntries>
 					</archive>
 				</configuration>
