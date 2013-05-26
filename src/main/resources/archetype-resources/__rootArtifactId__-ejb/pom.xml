@@ -16,6 +16,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-ejb-plugin</artifactId>
+				<version>2.3</version>
 				<configuration>
 					<ejbVersion>3.0</ejbVersion>
 					<archive>
@@ -23,7 +24,7 @@
 						 -->
 						<manifestEntries>
 							<Class-Path>imixs-workflow-engine-${versionNumber-workflow}.jar imixs-workflow-core-${versionNumber-workflow}.jar imixs-marty-ejb-${versionNumber-marty}.jar imixs-office-workflow-ejb-${versionNumber-office}.jar lucene-core-3.1.0.jar</Class-Path>
-						</manifestEntries>
+							</manifestEntries>
 					</archive>
 				</configuration>
 			</plugin>
@@ -32,10 +33,6 @@
 
 
 	<dependencies>
-		<dependency>
-			<groupId>org.imixs.marty</groupId>
-			<artifactId>imixs-marty-ejb</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.imixs.workflow</groupId>
 			<artifactId>imixs-workflow-engine</artifactId>

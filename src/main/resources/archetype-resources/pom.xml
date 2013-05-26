@@ -13,11 +13,14 @@
 		<module>${rootArtifactId}-web</module>
 		<module>${rootArtifactId}-ear</module>
 	</modules>
-
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 	<build>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
 				<configuration>
 					<source>1.6</source>
 					<target>1.6</target>
@@ -28,26 +31,7 @@
 	<dependencyManagement>
 		<dependencies>
 		
-			<!-- RichFaces -->
-			<dependency>
-				<groupId>org.richfaces.ui</groupId>
-				<artifactId>richfaces-ui</artifactId>
-				<version>3.3.3.Final</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-		      <groupId>org.richfaces.framework</groupId>
-		      <artifactId>richfaces-impl</artifactId>
-		      <version>3.3.3.Final</version>
-		      <scope>provided</scope>
-		    </dependency>
-		    <dependency>
-		      <groupId>org.richfaces.framework</groupId>
-		      <artifactId>richfaces-impl-jsf2</artifactId>
-		      <version>3.3.3.Final</version>
-		      <scope>provided</scope>
-		    </dependency>
-    
+			
 		    <!-- Imixs Workflow -->
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
@@ -69,7 +53,7 @@
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-workflow-jax-rs</artifactId>
-				<version>${versionNumber-workflow}</version>
+				<version>3.1.1</version>
 			</dependency>
 		
 			
@@ -86,12 +70,7 @@
 				<version>${versionNumber-marty}</version>
 				<scope>provided</scope>
 			</dependency>
-			<dependency>
-				<groupId>org.imixs.marty</groupId>
-				<artifactId>imixs-marty-web</artifactId>
-				<version>${versionNumber-marty}</version>
-				<type>war</type>
-			</dependency>
+			
 			
 			<!-- Office Workflow -->
 			<dependency>
