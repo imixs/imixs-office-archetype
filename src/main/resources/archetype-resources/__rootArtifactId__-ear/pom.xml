@@ -24,18 +24,15 @@
 							<artifactId>${rootArtifactId}-web</artifactId>
 							<contextRoot>/${contextRoot}</contextRoot>
 						</webModule>
+						<webModule>
+							<groupId>${groupId}</groupId>
+							<artifactId>${rootArtifactId}-rest</artifactId>
+							<contextRoot>/${contextRoot}</contextRoot>
+						</webModule>
 						<ejbModule>
 							<groupId>${groupId}</groupId>
 							<artifactId>${rootArtifactId}-ejb</artifactId>
 						</ejbModule>
-
-
-						<!-- REST Service -->
-						<webModule>
-							<groupId>com.imixs.workflow</groupId>
-							<artifactId>imixs-office-workflow-rest</artifactId>
-							<contextRoot>/${contextRoot}-rest</contextRoot>
-						</webModule>
 
 						<!-- Imixs componentes -->
 
@@ -107,12 +104,15 @@
 			<version>${version}</version>
 			<type>war</type>
 		</dependency>
-
+		
 		<dependency>
-			<groupId>com.imixs.workflow</groupId>
-			<artifactId>imixs-office-workflow-rest</artifactId>
+			<groupId>${groupId}</groupId>
+			<artifactId>${rootArtifactId}-rest</artifactId>
+			<version>${version}</version>
 			<type>war</type>
 		</dependency>
+
+		
 		
 		
 			<!-- external -->

@@ -11,6 +11,7 @@
 	<modules>
 		<module>${rootArtifactId}-ejb</module>
 		<module>${rootArtifactId}-web</module>
+		<module>${rootArtifactId}-rest</module>
 		<module>${rootArtifactId}-ear</module>
 	</modules>
 	<properties>
