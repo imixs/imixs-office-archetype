@@ -27,7 +27,7 @@
 						<webModule>
 							<groupId>${groupId}</groupId>
 							<artifactId>${rootArtifactId}-rest</artifactId>
-							<contextRoot>/${contextRoot}</contextRoot>
+							<contextRoot>/${contextRoot}-rest</contextRoot>
 						</webModule>
 						<ejbModule>
 							<groupId>${groupId}</groupId>
