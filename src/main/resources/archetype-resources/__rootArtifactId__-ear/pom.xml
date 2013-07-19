@@ -94,21 +94,21 @@
 		<dependency>
 			<groupId>${groupId}</groupId>
 			<artifactId>${rootArtifactId}-ejb</artifactId>
-			<version>${version}</version>
+			<version>${project.version}</version>
 			<type>ejb</type>
 		</dependency>
 
 		<dependency>
 			<groupId>${groupId}</groupId>
 			<artifactId>${rootArtifactId}-web</artifactId>
-			<version>${version}</version>
+			<version>${project.version}</version>
 			<type>war</type>
 		</dependency>
 		
 		<dependency>
 			<groupId>${groupId}</groupId>
 			<artifactId>${rootArtifactId}-rest</artifactId>
-			<version>${version}</version>
+			<version>${project.version}</version>
 			<type>war</type>
 		</dependency>
 
