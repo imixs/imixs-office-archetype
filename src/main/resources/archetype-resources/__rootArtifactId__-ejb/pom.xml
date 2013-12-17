@@ -21,8 +21,8 @@
 						<!-- add the EJB module imixs-workflow-jee-impl 
 						 -->
 						<manifestEntries>
-							<Class-Path>imixs-workflow-engine-${versionNumber-workflow}.jar imixs-workflow-core-${versionNumber-workflow}.jar imixs-marty-ejb-${versionNumber-marty}.jar imixs-office-workflow-ejb-${versionNumber-office}.jar lucene-core-3.1.0.jar</Class-Path>
-							</manifestEntries>
+							<Class-Path>imixs-workflow-engine-${org.imixs.workflow.version}.jar imixs-workflow-core-${org.imixs.workflow.version}.jar imixs-workflow-jax-rs-${org.imixs.workflow.version}.jar imixs-marty-ejb-${org.imixs.marty.version}.jar</Class-Path>
+						</manifestEntries>
 					</archive>
 				</configuration>
 			</plugin>

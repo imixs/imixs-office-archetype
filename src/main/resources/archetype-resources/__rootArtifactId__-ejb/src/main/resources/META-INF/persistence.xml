@@ -10,15 +10,15 @@
         <!-- eclipselink -->
         <persistence-unit name="org.imixs.workflow.jee.jpa" transaction-type="JTA">     
                 <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>    
-                <jta-data-source>${jtaDataSource}</jta-data-source>
-                <jar-file>imixs-workflow-engine-${versionNumber-workflow}.jar</jar-file>
-                 <jar-file>imixs-marty-ejb-${versionNumber-marty}.jar</jar-file>
+                <jta-data-source>jdbc/imixs_office</jta-data-source>
+                <jar-file>imixs-workflow-engine-${org.imixs.workflow.version}.jar</jar-file>
+                <jar-file>imixs-marty-ejb-${org.imixs.marty.version}.jar</jar-file>
                 <properties>
                         <property name="eclipselink.ddl-generation"
                                 value="create-tables" />
                         <property name="eclipselink.logging.level" value="INFO"/>
                 </properties>                           
-        </persistence-unit>     
+        </persistence-unit>       
 
 	
 

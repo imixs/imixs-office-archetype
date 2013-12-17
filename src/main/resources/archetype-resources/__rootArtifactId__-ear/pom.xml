@@ -17,17 +17,19 @@
 				<version>2.6</version>
 				<configuration>
 					<version>6</version>
+					<applicationName>${imixs-office.applicationname}</applicationName>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<filtering>true</filtering>
 					<modules>
-
 						<webModule>
 							<groupId>${groupId}</groupId>
 							<artifactId>${rootArtifactId}-web</artifactId>
-							<contextRoot>/${contextRoot}</contextRoot>
+							<contextRoot>${imixs-office.contextroot}</contextRoot>
 						</webModule>
 						<webModule>
 							<groupId>${groupId}</groupId>
 							<artifactId>${rootArtifactId}-rest</artifactId>
-							<contextRoot>/${contextRoot}-rest</contextRoot>
+							<contextRoot>${imixs-office.contextroot-restservice}</contextRoot>
 						</webModule>
 						<ejbModule>
 							<groupId>${groupId}</groupId>
@@ -39,22 +41,25 @@
 						<JarModule>
 							<groupId>org.imixs.workflow</groupId>
 							<artifactId>imixs-workflow-core</artifactId>
+							<bundleDir>/</bundleDir>
 						</JarModule>
 
 						<JarModule>
 							<groupId>org.imixs.workflow</groupId>
 							<artifactId>imixs-workflow-engine</artifactId>
+							<bundleDir>/</bundleDir>
 						</JarModule>
-
 
 						<JarModule>
 							<groupId>org.imixs.marty</groupId>
 							<artifactId>imixs-marty-ejb</artifactId>
+							<bundleDir>/</bundleDir>
 						</JarModule>
 						
 						<JarModule>
 							<groupId>com.imixs.workflow</groupId>
 							<artifactId>imixs-office-workflow-ejb</artifactId>
+							<bundleDir>/</bundleDir>
 						</JarModule>
 
 					</modules>
@@ -112,10 +117,7 @@
 			<type>war</type>
 		</dependency>
 
-		
-		
-		
-			<!-- external -->
+		<!-- external -->
 		<dependency>
 			<groupId>org.apache.lucene</groupId>
 			<artifactId>lucene-core</artifactId>

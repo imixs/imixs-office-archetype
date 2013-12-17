@@ -15,8 +15,32 @@
 		<module>${rootArtifactId}-ear</module>
 	</modules>
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+		<!--  
+			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+			
+			because of resource filtering is enabled we can not use UTF-8 for some strange reasons. 
+			When setting sourceEncoding to ISO-8859-1 the special german charcters works fine 
+			
+		-->	
+		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+	  
+    
+		<!-- Workflow Versions -->
+		<org.imixs.workflow.version>3.1.5</org.imixs.workflow.version>
+		<org.imixs.marty.version>2.0.6</org.imixs.marty.version>
+		<org.imixs.office.version>2.0.6</org.imixs.office.version>
+		
+		<!-- Environment Settings -->
+		<imixs-office.contextroot>/${rootArtifactId}</imixs-office.contextroot>
+		<imixs-office.contextroot-restservice>/${rootArtifactId}-rest</imixs-office.contextroot-restservice>
+		<imixs-office.realm>${rootArtifactId}</imixs-office.realm>
+		<imixs-office.jta-data-source>jdbc/${rootArtifactId}</imixs-office.jta-data-source>
+		<imixs-office.IndexDir>${rootArtifactId}-index</imixs-office.IndexDir>
+		<imixs-office.applicationname>${rootArtifactId}</imixs-office.applicationname>
+	</properties>
+	
+	
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -33,28 +57,28 @@
 		<dependencies>
 		
 			
-		    <!-- Imixs Workflow -->
+ 			<!-- Imixs Workflow -->
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-workflow-core</artifactId>
-				<version>${versionNumber-workflow}</version>
+				<version>${org.imixs.workflow.version}</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-workflow-engine</artifactId>
-				<version>${versionNumber-workflow}</version>
+				<version>${org.imixs.workflow.version}</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-workflow-faces</artifactId>
-				<version>${versionNumber-workflow}</version>
+				<version>${org.imixs.workflow.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-workflow-jax-rs</artifactId>
-				<version>3.1.1</version>
+				<version>${org.imixs.workflow.version}</version>
 			</dependency>
 		
 			
@@ -63,35 +87,37 @@
 			<dependency>
 				<groupId>org.imixs.marty</groupId>
 				<artifactId>imixs-marty-util</artifactId>
-				<version>${versionNumber-marty}</version>
+				<version>${org.imixs.marty.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.imixs.marty</groupId>
 				<artifactId>imixs-marty-ejb</artifactId>
-				<version>${versionNumber-marty}</version>
+				<version>${org.imixs.marty.version}</version>
 				<scope>provided</scope>
 			</dependency>
+			
 			
 			
 			<!-- Office Workflow -->
 			<dependency>
 				<groupId>com.imixs.workflow</groupId>
 				<artifactId>imixs-office-workflow-ejb</artifactId>
-				<version>${versionNumber-office}</version>
+				<version>${org.imixs.office.version}</version>
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>com.imixs.workflow</groupId>
 				<artifactId>imixs-office-workflow-web</artifactId>
-				<version>${versionNumber-office}</version>
+				<version>${org.imixs.office.version}</version>
 				<type>war</type>
 			</dependency>
 			<dependency>
 				<groupId>com.imixs.workflow</groupId>
 				<artifactId>imixs-office-workflow-rest</artifactId>
-				<version>${versionNumber-office}</version>
+				<version>${org.imixs.office.version}</version>
 				<type>war</type>
 			</dependency>
+			
 			
 			<!-- lucene 2.0.0, 3.0.0 3.1.0-->
 			<dependency>

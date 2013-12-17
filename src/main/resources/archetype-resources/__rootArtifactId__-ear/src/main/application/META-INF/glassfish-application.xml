@@ -31,6 +31,6 @@
 		<principal-name>IMIXS-WORKFLOW-Service</principal-name>
 	</security-role-mapping>	
 	
-	<realm>${realmName}</realm>
+	<realm>${imixs-office.realm}</realm>
 
 </glassfish-application>
