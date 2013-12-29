@@ -8,7 +8,6 @@
   <packaging>maven-archetype</packaging>
 
   <name>imixs-office-archetype</name>
-
   <build>
     <extensions>
       <extension>
