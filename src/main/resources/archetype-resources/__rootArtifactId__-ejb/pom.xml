@@ -29,18 +29,34 @@
 		</plugins>
 	</build>
 
-
-	<dependencies>
+<dependencies>
+		<!-- <dependency> <groupId>org.imixs.marty</groupId> <artifactId>imixs-marty-ejb</artifactId> 
+			</dependency> -->
 		<dependency>
 			<groupId>org.imixs.workflow</groupId>
 			<artifactId>imixs-workflow-engine</artifactId>
 		</dependency>
-
+		
+		<dependency>
+			<groupId>org.imixs.marty</groupId>
+			<artifactId>imixs-marty-ejb</artifactId>
+		</dependency>
+		
+		<!-- 
 		<dependency>
 			<groupId>org.apache.lucene</groupId>
 			<artifactId>lucene-core</artifactId>
-			
+		</dependency>
+		 -->
+		
+		<!-- JUnit Tests -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<packaging>ejb</packaging>
 	
 </project>
