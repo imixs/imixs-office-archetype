@@ -29,7 +29,7 @@
 		</plugins>
 	</build>
 
-<dependencies>
+	<dependencies>
 		<!-- <dependency> <groupId>org.imixs.marty</groupId> <artifactId>imixs-marty-ejb</artifactId> 
 			</dependency> -->
 		<dependency>
@@ -56,7 +56,5 @@
 			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
-	<packaging>ejb</packaging>
-	
+	</dependencies>	
 </project>
