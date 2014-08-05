@@ -24,6 +24,7 @@
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
 		<org.imixs.workflow.version>3.1.7</org.imixs.workflow.version>
 		<org.imixs.marty.version>2.1.0</org.imixs.marty.version>
+		<org.imixs.office.version>2.1.0</org.imixs.office.version>
 		<lucene.version>4.5.1</lucene.version>
 		<custom.webResources>src/main/webapp</custom.webResources>
 		<imixs-office.applicationname>imixs-office-workflow</imixs-office.applicationname>
