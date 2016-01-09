@@ -10,6 +10,41 @@
 	<artifactId>${artifactId}</artifactId>
 	<packaging>war</packaging>
 
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+
+				<configuration>
+				
+					<webResources>
+						<resource>
+							<!-- this is relative to the pom.xml directory -->
+							<directory>${custom.webResources}</directory>
+						</resource>
+					</webResources>
+					
+					<workDirectory>target/overlay-war-folder</workDirectory>
+
+					<!-- We exclude libs form the parent WAR artifact -->
+					<overlays>
+						<overlay>
+							<groupId>com.imixs.workflow</groupId>
+							<artifactId>imixs-office-workflow-web</artifactId>
+							<excludes>
+								<exclude>WEB-INF/lib/*.jar</exclude>
+							</excludes>
+						</overlay>
+					</overlays>
+
+				</configuration>
+
+			</plugin>
+		</plugins>
+	</build>
 	<dependencies>
 		<dependency>
 			<groupId>org.imixs.marty</groupId>
