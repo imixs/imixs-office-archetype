@@ -56,12 +56,6 @@
 							<bundleDir>/</bundleDir>
 						</JarModule>
 						
-						<JarModule>
-							<groupId>com.imixs.workflow</groupId>
-							<artifactId>imixs-office-workflow-ejb</artifactId>
-							<bundleDir>/</bundleDir>
-						</JarModule>
-
 					</modules>
 				</configuration>
 			</plugin>
@@ -89,11 +83,6 @@
 			<type>jar</type>
 		</dependency>
 		
-		<dependency>
-			<groupId>com.imixs.workflow</groupId>
-			<artifactId>imixs-office-workflow-ejb</artifactId>
-			<type>jar</type>
-		</dependency>
 
 		<!-- Imixs Office -->
 		<dependency>

@@ -22,10 +22,10 @@
 			reasons. When setting sourceEncoding to ISO-8859-1 the special german charcters 
 			works fine -->
 		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-		<org.imixs.workflow.version>3.3.0</org.imixs.workflow.version>
-		<org.imixs.marty.version>2.2.0</org.imixs.marty.version>
-		<org.imixs.office.version>2.2.0</org.imixs.office.version>
-		<lucene.version>4.5.1</lucene.version>
+		<org.imixs.workflow.version>3.5.0</org.imixs.workflow.version>
+		<org.imixs.marty.version>2.5.0</org.imixs.marty.version>
+		<org.imixs.office.version>2.5.0</org.imixs.office.version>
+		<lucene.version>4.10.4</lucene.version>
 		<custom.webResources>src/main/webapp</custom.webResources>		
 		
 		<!-- Environment Settings -->
@@ -38,6 +38,19 @@
 	</properties>
 
 	
+	
+	<profiles>
+		<!-- wildfly profile -->
+		<profile>
+			<id>wildfly</id>
+			<properties>
+				<custom.webResources>src/main/webapp_wildfly</custom.webResources>
+				<custom.unpackTypes>war</custom.unpackTypes>
+				<!-- jndi Mail res-ref name -->
+				<imixs-mail-res-ref-name>java:/mail/org.imixs.workflow.mail</imixs-mail-res-ref-name>
+			</properties>
+		</profile>
+	</profiles>
 	
 	
 	
@@ -54,8 +67,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.3.2</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -154,6 +167,13 @@
 			<artifactId>javaee-api</artifactId>
 			<version>6.0</version>
 			<scope>provided</scope>
+		</dependency>
+		<!-- JUnit Tests -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 </project>
