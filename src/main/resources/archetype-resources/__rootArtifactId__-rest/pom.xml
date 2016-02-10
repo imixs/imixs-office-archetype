@@ -33,7 +33,7 @@
 					<overlays>
 						<overlay>
 							<groupId>com.imixs.workflow</groupId>
-							<artifactId>imixs-office-workflow-web</artifactId>
+							<artifactId>imixs-office-workflow-rest</artifactId>
 							<excludes>
 								<exclude>WEB-INF/lib/*.jar</exclude>
 							</excludes>
