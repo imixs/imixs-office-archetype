@@ -109,6 +109,8 @@
 						<include>**/*.xml</include>
 						<include>**/*.properties</include>
 						<include>**/*.txt</include>
+						<include>**/*.ixm</include>
+						<include>**/*.bpmn</include>
 					</includes>
 				</fileSet>
 				<fileSet encoding="UTF-8">
