@@ -13,22 +13,32 @@
 
 	<build>
 		<plugins>
-
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.6</version>
-
 				<configuration>
-				
-					<webResources>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+        			<webResources>
 						<resource>
+							<filtering>true</filtering>
 							<!-- this is relative to the pom.xml directory -->
 							<directory>${custom.webResources}</directory>
+							<includes>
+					        	<include>**/WEB-INF/*</include>
+					         	<!-- include any other file types you want to filter -->
+					       	</includes>
 						</resource>
 					</webResources>
-					
 					<workDirectory>target/overlay-war-folder</workDirectory>
-
 					<!-- We exclude libs form the parent WAR artifact -->
 					<overlays>
 						<overlay>
@@ -39,9 +49,7 @@
 							</excludes>
 						</overlay>
 					</overlays>
-
 				</configuration>
-
 			</plugin>
 		</plugins>
 	</build>
