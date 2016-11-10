@@ -56,11 +56,6 @@
 							<bundleDir>/</bundleDir>
 						</JarModule>
 
-						<JarModule>
-							<groupId>org.imixs.workflow</groupId>
-							<artifactId>imixs-adapters-lucene-ejb</artifactId>
-							<bundleDir>/</bundleDir>
-						</JarModule>
 					</modules>
 				</configuration>
 			</plugin>
@@ -88,12 +83,6 @@
 			<type>jar</type>
 		</dependency>
 		
-		<!-- lucene -->
-		<dependency>
-			<groupId>org.imixs.workflow</groupId>
-			<artifactId>imixs-adapters-lucene-ejb</artifactId>
-		</dependency>		
-
 		<!-- Imixs Office -->
 		<dependency>
 			<groupId>${groupId}</groupId>
