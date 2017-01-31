@@ -12,7 +12,7 @@
 		
 		<session>
 			<ejb-name>WorkflowService</ejb-name>
-			<ejb-class>org.imixs.workflow.jee.ejb.WorkflowService</ejb-class>
+			<ejb-class>org.imixs.workflow.engine.WorkflowService</ejb-class>
 			<session-type>Stateless</session-type>
 			
 			<!-- Mail Configuration -->
@@ -20,7 +20,7 @@
 				<description>Mail Plugin Session name</description>
 				<env-entry-name>IMIXS_MAIL_SESSION</env-entry-name>
 				<env-entry-type>java.lang.String</env-entry-type>
-				<env-entry-value>mail/org.imixs.workflow.mail</env-entry-value>
+				<env-entry-value>${imixs-mail-res-ref-name}</env-entry-value>
 			</env-entry>
 						
 			<!-- Plugin Service EJBs -->
@@ -39,26 +39,16 @@
                     <ejb-ref-type>Session</ejb-ref-type>
                     <remote>org.imixs.marty.ejb.security.UserGroupService</remote>
             </ejb-ref>
-             <ejb-ref>
-                    <ejb-ref-name>ejb/PropertyService</ejb-ref-name>
-                    <ejb-ref-type>Session</ejb-ref-type>
-                    <remote>org.imixs.workflow.jee.util.PropertyService</remote>
-            </ejb-ref>
             <ejb-ref>
                     <ejb-ref-name>ejb/SystemWorkitemService</ejb-ref-name>
                     <ejb-ref-type>Session</ejb-ref-type>
                     <remote>org.imixs.marty.ejb.SystemWorkitemService</remote>
             </ejb-ref>
-            <ejb-ref>
-				<ejb-ref-name>ejb/LuceneUpdateService</ejb-ref-name>
-				<ejb-ref-type>Session</ejb-ref-type>
-				<remote>org.imixs.workflow.lucene.LuceneUpdateService</remote>
-			</ejb-ref>
            
             
 			<!-- Mail resource -->
 			<resource-ref>
-				<res-ref-name>java:/mail/org.imixs.workflow.mail</res-ref-name>
+				<res-ref-name>${imixs-mail-res-ref-name}</res-ref-name>
 				<res-type>javax.mail.Session</res-type>
 				<res-auth>Container</res-auth>
 				<res-sharing-scope>Shareable</res-sharing-scope>
@@ -98,7 +88,7 @@
 		<!-- ImageInterceptor -->
 		<interceptor-binding>
 			<description>Intercepter to resize new uploaded photos if max size is exceeded.</description>
-			<ejb-name>EntityService</ejb-name>
+			<ejb-name>DocumentService</ejb-name>
 			<interceptor-class>org.imixs.marty.ejb.ImageInterceptor</interceptor-class>
 		</interceptor-binding>
 		

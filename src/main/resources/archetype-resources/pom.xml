@@ -28,10 +28,10 @@
    		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
   
   		<!-- Workflow Versions -->
-		<org.imixs.workflow.version>4.0.1</org.imixs.workflow.version>
-		<org.imixs.marty.version>3.0.0</org.imixs.marty.version>
-		<org.imixs.office.version>3.0.0</org.imixs.office.version>
-		<lucene.version>4.10.4</lucene.version>
+		<org.imixs.workflow.version>4.0.6</org.imixs.workflow.version>
+		<org.imixs.marty.version>3.0.2</org.imixs.marty.version>
+		<org.imixs.office.version>3.0.1</org.imixs.office.version>
+		<lucene.version>6.3.0</lucene.version>
 		<custom.webResources>src/main/webapp</custom.webResources>		
 		
 		<!-- Environment Settings -->
@@ -39,7 +39,7 @@
 		<imixs-office.contextroot-restservice>/${rootArtifactId}-rest</imixs-office.contextroot-restservice>
 		<imixs-office.realm>${rootArtifactId}</imixs-office.realm>
 		<imixs-office.jta-data-source>jdbc/${rootArtifactId}</imixs-office.jta-data-source>
-		<imixs-office.IndexDir>${rootArtifactId}-index</imixs-office.IndexDir>
+		<imixs-office.IndexDir>lucene/${rootArtifactId}-index</imixs-office.IndexDir>
 		<imixs-office.applicationname>${rootArtifactId}</imixs-office.applicationname>
 		
 		<imixs-mail-res-ref-name>java:/mail/org.imixs.workflow.mail</imixs-mail-res-ref-name>
