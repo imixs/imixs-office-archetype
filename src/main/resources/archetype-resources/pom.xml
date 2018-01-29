@@ -53,6 +53,8 @@
 
 		<!-- Wildfly unpack war -->
     	<custom.unpackTypes>war</custom.unpackTypes>
+    	
+    	<imixs-office.applicationname>${rootArtifactId}</imixs-office.applicationname>
 	</properties>
 
 	<repositories>
@@ -81,10 +83,6 @@
 		<profile>
 			<id>docker-build</id>
 			<!-- build current version local - see ear module for details -->
-		</profile>
-		<profile>
-			<id>docker-push</id>
-			<!-- build and push to repp - see ear module for details -->
 		</profile>
 	</profiles>
 	
