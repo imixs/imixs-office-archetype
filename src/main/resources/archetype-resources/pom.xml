@@ -28,10 +28,12 @@
    		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
   
   		<!-- Workflow Versions -->
-		<org.imixs.workflow.version>4.1.6</org.imixs.workflow.version>
-		<org.imixs.marty.version>3.0.7</org.imixs.marty.version>
-		<org.imixs.office.version>3.0.5</org.imixs.office.version>
-		<lucene.version>6.3.0</lucene.version>
+		<org.imixs.workflow.version>4.2.3</org.imixs.workflow.version>
+		<org.imixs.marty.version>3.1.2</org.imixs.marty.version>
+		<org.imixs.office.version>3.1.1</org.imixs.office.version>
+		<lucene.version>6.6.1</lucene.version>
+		<imixs.adapters.version>1.5.0</imixs.adapters.version>
+	
 		<custom.webResources>src/main/webapp</custom.webResources>		
 		
 		<!-- Environment Settings -->
