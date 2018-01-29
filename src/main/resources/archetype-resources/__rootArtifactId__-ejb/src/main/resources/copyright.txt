@@ -2,7 +2,7 @@
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
  Imixs Workflow Technology
- Copyright (C) 2010 Imixs Software Solutions GmbH,  
+ Copyright (C) 2018 Imixs Software Solutions GmbH,  
  http://www.imixs.com
  
  

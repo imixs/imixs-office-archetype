@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence">
-        <!--
+  		<!--
                 Imixs JPA definition Make sure that the imixs-workflow-jee library
                 version maches the version provided by the EAR/EJB
         -->
@@ -21,7 +21,4 @@
 						<property name="eclipselink.logging.level" value="INFO" />
                 </properties>                           
         </persistence-unit>       
-
-	
-
 </persistence>
