@@ -37,26 +37,39 @@
 						</ejbModule>
 
 						<!-- Imixs componentes -->
-
 						<JarModule>
 							<groupId>org.imixs.workflow</groupId>
 							<artifactId>imixs-workflow-core</artifactId>
 							<bundleDir>/</bundleDir>
 						</JarModule>
-
 						<JarModule>
 							<groupId>org.imixs.workflow</groupId>
 							<artifactId>imixs-workflow-engine</artifactId>
 							<bundleDir>/</bundleDir>
 						</JarModule>
-
+						<JarModule>
+							<groupId>org.imixs.workflow</groupId>
+							<artifactId>imixs-workflow-jax-rs</artifactId>
+							<bundleDir>/</bundleDir>
+						</JarModule>
 						<JarModule>
 							<groupId>org.imixs.marty</groupId>
 							<artifactId>imixs-marty-ejb</artifactId>
 							<bundleDir>/</bundleDir>
 						</JarModule>
-
+						<JarModule>
+							<groupId>org.imixs.workflow</groupId>
+							<artifactId>imixs-archive-api</artifactId>
+							<bundleDir>/</bundleDir>
+						</JarModule>
+						<JarModule>
+							<groupId>org.imixs.workflow</groupId>
+							<artifactId>imixs-adapters-documents</artifactId>
+							<bundleDir>/</bundleDir>
+						</JarModule> 
 					</modules>
+					
+					<unpackTypes>${custom.unpackTypes}</unpackTypes>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -73,6 +86,11 @@
 		<dependency>
 			<groupId>org.imixs.workflow</groupId>
 			<artifactId>imixs-workflow-engine</artifactId>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-workflow-jax-rs</artifactId>
 			<type>jar</type>
 		</dependency>
 
@@ -122,8 +140,43 @@
 	        <scope>compile</scope>
 	    </dependency>
    
+		<!-- Imixs-Archive -->
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-archive-api</artifactId>
+			 <scope>compile</scope>
+		</dependency>
+		
+		<!-- Core Document Parser -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-scratchpad</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.pdfbox</groupId>
+		    <artifactId>pdfbox</artifactId>
+		    <scope>compile</scope>
+		</dependency>
+	
+		<!-- Imixs-Adapters -->
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-adapters-documents</artifactId>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
 		
 	</dependencies>
-
 
 </project>

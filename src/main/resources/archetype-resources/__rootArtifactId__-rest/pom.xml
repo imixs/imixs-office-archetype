@@ -10,7 +10,6 @@
 	<artifactId>${artifactId}</artifactId>
 	<packaging>war</packaging>
 
-
 	<build>
 		<plugins>
 			<plugin>
@@ -60,11 +59,6 @@
 			<artifactId>imixs-office-workflow-rest</artifactId>
 			<type>war</type>
 		</dependency>
-
-		<dependency>
-			<groupId>org.imixs.workflow</groupId>
-			<artifactId>imixs-workflow-jax-rs</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.imixs.workflow</groupId>
 			<artifactId>imixs-workflow-engine</artifactId>
@@ -73,6 +67,6 @@
 			<groupId>org.imixs.marty</groupId>
 			<artifactId>imixs-marty-ejb</artifactId>
 		</dependency>
-		
 	</dependencies>
+	
 </project>

@@ -21,7 +21,7 @@
 						<!-- add the EJB module imixs-workflow-jee-impl 
 						 -->
 						<manifestEntries>
-							<Class-Path>imixs-workflow-engine-${org.imixs.workflow.version}.jar imixs-workflow-core-${org.imixs.workflow.version}.jar imixs-marty-ejb-${org.imixs.marty.version}.jar</Class-Path>
+							<Class-Path>imixs-workflow-engine-${org.imixs.workflow.version}.jar imixs-workflow-core-${org.imixs.workflow.version}.jar imixs-workflow-jax-rs-${org.imixs.workflow.version}.jar imixs-marty-ejb-${org.imixs.marty.version}.jar imixs-adapters-ldap-ejb-${org.imixs.adapters.version}.jar  imixs-archive-api-${org.imixs.archive.version}.jar imixs-adapters-documents-${org.imixs.adapters.version}.jar</Class-Path>
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -30,15 +30,25 @@
 	</build>
 
 	<dependencies>
-
 		<dependency>
 			<groupId>org.imixs.workflow</groupId>
 			<artifactId>imixs-workflow-engine</artifactId>
 		</dependency>
-		
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-workflow-jax-rs</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.imixs.marty</groupId>
 			<artifactId>imixs-marty-ejb</artifactId>
 		</dependency>
-	</dependencies>	
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-archive-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-adapters-documents</artifactId>
+		</dependency>
+	</dependencies>
 </project>

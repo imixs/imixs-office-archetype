@@ -12,3 +12,9 @@ target/
 .settings/
 .project
 .classpath
+.metadata/
+
+
+# ignore docker deployments
+src/docker/.deployments/
+src/docker/.data/
