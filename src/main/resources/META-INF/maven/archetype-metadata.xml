@@ -33,6 +33,8 @@
 			<includes>
 				<include>.project</include>
 				<include>.gitignore</include>
+				<include>Dockerfile</include>
+				<include>docker-compose.yml</include>
 			</includes>
 		</fileSet>
 	</fileSets>
