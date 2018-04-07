@@ -5,7 +5,7 @@ postgres${rootArtifactId}:
     POSTGRES_DB: ${rootArtifactId}
 
 ${rootArtifactId}:
-  image: imixs/office-bauckhof
+  image: imixs/${rootArtifactId}
   environment:
     WILDFLY_PASS: adminadmin
     DEBUG: "true"
