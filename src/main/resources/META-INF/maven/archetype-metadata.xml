@@ -32,6 +32,7 @@
 			<directory></directory>
 			<includes>
 				<include>.project</include>
+				<include>.gitignore</include>
 			</includes>
 		</fileSet>
 	</fileSets>
