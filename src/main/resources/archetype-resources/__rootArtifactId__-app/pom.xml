@@ -217,5 +217,12 @@
 			<artifactId>imixs-archive-api</artifactId>
 			<scope>compile</scope>
 		</dependency>
+		
+		<!-- Imixs-Office-Workflow -->
+		<dependency>
+			<groupId>com.imixs.workflow</groupId>
+			<artifactId>imixs-office-workflow-app</artifactId>
+			<type>war</type>
+		</dependency>
 	</dependencies>
 </project>

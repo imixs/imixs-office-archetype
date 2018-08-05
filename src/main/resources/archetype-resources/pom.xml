@@ -24,19 +24,18 @@
 		<org.imixs.build.timestamp>${maven.build.timestamp}</org.imixs.build.timestamp>
 		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
 
-		<!-- Workflow Versions -->
-		<org.imixs.workflow.version>4.2.6</org.imixs.workflow.version>
-		<org.imixs.marty.version>3.2.1</org.imixs.marty.version>
-		<org.imixs.office.version>3.2.1</org.imixs.office.version>
+		<!-- Versions -->
+		<org.imixs.workflow.version>4.3.6-SNAPSHOT</org.imixs.workflow.version>
+		<org.imixs.marty.version>3.3.1</org.imixs.marty.version>
+		<org.imixs.office.version>3.4.0-SNAPSHOT</org.imixs.office.version>
 		<lucene.version>6.6.1</lucene.version>
 		<org.imixs.adapters.version>1.5.2</org.imixs.adapters.version>
-		<custom.webResources>src/main/webapp</custom.webResources>
-
-		<!-- Imixs-Archive -->
-		<org.imixs.archive.version>1.0.0</org.imixs.archive.version>
+		<org.imixs.archive.version>1.1.0</org.imixs.archive.version>
 		<apache.poi.version>3.17</apache.poi.version>
 		<apache.pdfbox.version>2.0.7</apache.pdfbox.version>
-		<apache.tika.version>1.16</apache.tika.version>
+		<apache.tika.version>1.16</apache.tika.version>		
+		
+		<custom.webResources>src/main/webapp</custom.webResources>
 		
 		<!-- Environment Settings -->
 		<imixs-office.contextroot>/${rootArtifactId}</imixs-office.contextroot>
@@ -133,21 +132,22 @@
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-workflow-faces</artifactId>
-				<!-- <version>${org.imixs.workflow.version}</version> -->
 				<version>${org.imixs.workflow.version}</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-workflow-jax-rs</artifactId>
 				<version>${org.imixs.workflow.version}</version>
+				<scope>provided</scope>
 			</dependency>
-
 
 			<!-- Marty -->
 			<dependency>
 				<groupId>org.imixs.marty</groupId>
 				<artifactId>imixs-marty-util</artifactId>
 				<version>${org.imixs.marty.version}</version>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.imixs.marty</groupId>
@@ -155,7 +155,15 @@
 				<version>${org.imixs.marty.version}</version>
 				<scope>provided</scope>
 			</dependency>
-
+			
+			<!-- Office Workflow -->
+			<dependency>
+				<groupId>com.imixs.workflow</groupId>
+				<artifactId>imixs-office-workflow-app</artifactId>
+				<version>${org.imixs.office.version}</version>
+				<type>war</type>
+			</dependency>
+			
 			<!-- Apache Lucene -->
 			<dependency>
 				<groupId>org.apache.lucene</groupId>
@@ -217,8 +225,6 @@
 				<version>${apache.pdfbox.version}</version>
 				<scope>provided</scope>
 			</dependency>
-
-
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-adapters-documents</artifactId>

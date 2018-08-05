@@ -39,99 +39,13 @@
 		</fileSet>
 	</fileSets>
 	<modules>
-		<module id="${rootArtifactId}-ear" dir="__rootArtifactId__-ear"
-			name="${rootArtifactId}-ear">
-			<fileSets>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/application</directory>
-					<includes>
-						<include>**/*.xml</include>
-					</includes>
-				</fileSet>
-				<fileSet encoding="UTF-8">
-					<directory>.settings</directory>
-					<includes>
-						<include>**/*.prefs</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory></directory>
-					<includes>
-						<include>.project</include>
-						<include>.classpath</include>
-					</includes>
-				</fileSet>
-			</fileSets>
-		</module>
-		<module id="${rootArtifactId}-web" dir="__rootArtifactId__-web"
-			name="${rootArtifactId}-web">
+		<module id="${rootArtifactId}-app" dir="__rootArtifactId__-app"
+			name="${rootArtifactId}-app">
 			<fileSets>
 				<fileSet filtered="true" encoding="UTF-8">
 					<directory>src/main/webapp</directory>
 					<includes>
 						<include>**/*.xml</include>
-					</includes>
-				</fileSet>
-				<fileSet encoding="UTF-8">
-					<directory>.settings</directory>
-					<includes>
-						<include>**/*.prefs</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory></directory>
-					<includes>
-						<include>.project</include>
-						<include>.classpath</include>
-					</includes>
-				</fileSet>
-			</fileSets>
-		</module>
-
-
-		<module id="${rootArtifactId}-rest" dir="__rootArtifactId__-rest"
-			name="${rootArtifactId}-rest">
-			<fileSets>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/webapp</directory>
-					<includes>
-						<include>**/*.xml</include>
-					</includes>
-				</fileSet>
-				<fileSet encoding="UTF-8">
-					<directory>.settings</directory>
-					<includes>
-						<include>**/*.prefs</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory></directory>
-					<includes>
-						<include>.project</include>
-						<include>.classpath</include>
-					</includes>
-				</fileSet>
-			</fileSets>
-		</module>
-
-
-		<module id="${rootArtifactId}-ejb" dir="__rootArtifactId__-ejb"
-			name="${rootArtifactId}-ejb">
-			<fileSets>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/resources</directory>
-					<includes>
-						<include>**/*.xml</include>
-						<include>**/*.properties</include>
-						<include>**/*.txt</include>
-						<include>**/*.ixm</include>
-						<include>**/*.bpmn</include>
-					</includes>
-				</fileSet>
-				<fileSet encoding="UTF-8">
-					<directory>src/main/resources</directory>
-					<includes>
-						<include>**/*.MF</include>
 					</includes>
 				</fileSet>
 				<fileSet encoding="UTF-8">
