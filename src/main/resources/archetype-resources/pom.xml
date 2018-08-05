@@ -9,10 +9,7 @@
 	<name>Imixs Office Workflow - Custom Build</name>
 
 	<modules>
-		<module>${rootArtifactId}-ejb</module>
-		<module>${rootArtifactId}-web</module>
-		<module>${rootArtifactId}-rest</module>
-		<module>${rootArtifactId}-ear</module>
+		<module>${rootArtifactId}-app</module>
 	</modules>
 
 
@@ -84,7 +81,12 @@
 			<id>docker-build</id>
 			<!-- build current version local - see ear module for details -->
 		</profile>
+		<profile>
+			<id>docker-push</id>
+			<!-- build and push to repp - see ear module for details -->
+		</profile>
 	</profiles>
+	
 	
 	<build>
 		<resources>
@@ -115,8 +117,6 @@
 	</build>
 	<dependencyManagement>
 		<dependencies>
-
-
 			<!-- Imixs Workflow -->
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
@@ -133,6 +133,7 @@
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-workflow-faces</artifactId>
+				<!-- <version>${org.imixs.workflow.version}</version> -->
 				<version>${org.imixs.workflow.version}</version>
 			</dependency>
 			<dependency>
@@ -155,29 +156,6 @@
 				<scope>provided</scope>
 			</dependency>
 
-
-
-			<!-- Office Workflow -->
-			<dependency>
-				<groupId>com.imixs.workflow</groupId>
-				<artifactId>imixs-office-workflow-ejb</artifactId>
-				<version>${org.imixs.office.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			<dependency>
-				<groupId>com.imixs.workflow</groupId>
-				<artifactId>imixs-office-workflow-web</artifactId>
-				<version>${org.imixs.office.version}</version>
-				<type>war</type>
-			</dependency>
-			<dependency>
-				<groupId>com.imixs.workflow</groupId>
-				<artifactId>imixs-office-workflow-rest</artifactId>
-				<version>${org.imixs.office.version}</version>
-				<type>war</type>
-			</dependency>
-
-
 			<!-- Apache Lucene -->
 			<dependency>
 				<groupId>org.apache.lucene</groupId>
@@ -197,6 +175,7 @@
 				<version>${lucene.version}</version>
 				<scope>provided</scope>
 			</dependency>
+
 			<!-- QR-Code service -->
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
@@ -204,7 +183,7 @@
 				<version>${org.imixs.adapters.version}</version>
 				<scope>provided</scope>
 			</dependency>
-			
+
 			<!-- Imixs-Archive -->
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
@@ -212,7 +191,7 @@
 				<version>${org.imixs.archive.version}</version>
 				<scope>provided</scope>
 			</dependency>
-			
+
 			<!-- Core Document Parser -->
 			<dependency>
 				<groupId>org.apache.poi</groupId>
@@ -233,26 +212,20 @@
 				<scope>provided</scope>
 			</dependency>
 			<dependency>
-			    <groupId>org.apache.pdfbox</groupId>
-			    <artifactId>pdfbox</artifactId>
-			    <version>${apache.pdfbox.version}</version>
+				<groupId>org.apache.pdfbox</groupId>
+				<artifactId>pdfbox</artifactId>
+				<version>${apache.pdfbox.version}</version>
 				<scope>provided</scope>
 			</dependency>
+
+
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-adapters-documents</artifactId>
 				<version>${org.imixs.adapters.version}</version>
 				<scope>provided</scope>
 			</dependency>
-			
-			<!-- LDAP Adapter -->
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-adapters-ldap-ejb</artifactId>
-				<version>${org.imixs.adapters.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			
+
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
