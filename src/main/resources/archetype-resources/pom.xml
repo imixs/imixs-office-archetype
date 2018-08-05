@@ -38,11 +38,10 @@
 		<custom.webResources>src/main/webapp</custom.webResources>
 		
 		<!-- Environment Settings -->
-		<imixs-office.contextroot>/${rootArtifactId}</imixs-office.contextroot>
-		<imixs-office.contextroot-restservice>/${rootArtifactId}-rest</imixs-office.contextroot-restservice>
-		<imixs-office.realm>${rootArtifactId}</imixs-office.realm>
-		<imixs-office.jta-data-source>jdbc/${rootArtifactId}</imixs-office.jta-data-source>
-		<imixs-office.IndexDir>lucene/${rootArtifactId}-index</imixs-office.IndexDir>
+		<imixs-office.contextroot>/</imixs-office.contextroot>
+		<imixs-office.realm>imixsrealm</imixs-office.realm>
+		<imixs-office.jta-data-source>jdbc/office</imixs-office.jta-data-source>
+		<imixs-office.IndexDir>lucene/office-index</imixs-office.IndexDir>
 		<imixs-office.applicationname>${rootArtifactId}</imixs-office.applicationname>
 
 		<imixs-mail-res-ref-name>java:/mail/org.imixs.workflow.mail</imixs-mail-res-ref-name>

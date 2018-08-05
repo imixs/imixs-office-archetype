@@ -11,12 +11,6 @@
 
 	<fileSets>
 		<fileSet encoding="UTF-8">
-			<directory>.settings</directory>
-			<includes>
-				<include>**/*.prefs</include>
-			</includes>
-		</fileSet>
-		<fileSet encoding="UTF-8">
 			<directory>src/docker</directory>
 			<includes>
 				<include>**/*</include>
@@ -34,8 +28,6 @@
 				<include>.gitignore</include>
 				<include>Dockerfile</include>
 				<include>docker-compose.yml</include>
-				<include>src/docker/configuration/imixsrealm.properties</include>
-				<include>src/docker/configuration/standalone.xml</include>
 			</includes>
 		</fileSet>
 	</fileSets>
