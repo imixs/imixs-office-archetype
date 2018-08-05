@@ -43,9 +43,39 @@
 			name="${rootArtifactId}-app">
 			<fileSets>
 				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/webapp</directory>
+					<directory>src/main/java</directory>
 					<includes>
-						<include>**/*.xml</include>
+						<include>**/*</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/webapp/layout/css/</directory>
+					<includes>
+						<include>custom.css</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/webapp/WEB-INF/</directory>
+					<includes>
+						<include>faces-config-custom.xml</include>
+					</includes>
+				</fileSet>				
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/test/java</directory>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/test/resources</directory>
+					<includes>
+						<include>**/*</include>
 					</includes>
 				</fileSet>
 				<fileSet encoding="UTF-8">
