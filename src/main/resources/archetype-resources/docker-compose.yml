@@ -22,3 +22,7 @@ services:
     volumes:
       - ~/git/${rootArtifactId}/src/docker/deployments:/opt/wildfly/standalone/deployments/
   
+  imixsadmin:
+    image: imixs/imixs-admin
+    ports:
+      - "8888:8080"
