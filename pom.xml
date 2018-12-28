@@ -39,7 +39,12 @@
 		</developer>
 	</developers>
 
-	
+	<url>https://github.com/imixs/imixs-office-archetype</url>
+	<organization>
+		<name>Imixs Software Solutions GmbH</name>
+		<url>http://www.imixs.com</url>
+	</organization>
+	<inceptionYear>2016</inceptionYear>
 	
 	<scm>
 		<connection>scm:git:https://github.com/imixs/imixs-office-archetype.git</connection>
