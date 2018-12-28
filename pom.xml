@@ -6,7 +6,7 @@
 
 	<groupId>com.imixs.workflow</groupId>
 	<artifactId>imixs-office-archetype</artifactId>
-	<version>3.4.0</version>
+	<version>3.4.0-SNAPSHOT</version>
 	<packaging>maven-archetype</packaging>
 
 	<name>imixs-office-archetype</name>
