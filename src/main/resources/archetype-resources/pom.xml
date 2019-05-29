@@ -115,6 +115,7 @@
 	</build>
 	<dependencyManagement>
 		<dependencies>
+
 			<!-- Imixs Workflow -->
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
@@ -132,21 +133,19 @@
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-workflow-faces</artifactId>
 				<version>${org.imixs.workflow.version}</version>
-				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-workflow-jax-rs</artifactId>
 				<version>${org.imixs.workflow.version}</version>
-				<scope>provided</scope>
 			</dependency>
+
 
 			<!-- Marty -->
 			<dependency>
 				<groupId>org.imixs.marty</groupId>
 				<artifactId>imixs-marty-util</artifactId>
 				<version>${org.imixs.marty.version}</version>
-				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.imixs.marty</groupId>
@@ -154,7 +153,7 @@
 				<version>${org.imixs.marty.version}</version>
 				<scope>provided</scope>
 			</dependency>
-			
+
 			<!-- Office Workflow -->
 			<dependency>
 				<groupId>com.imixs.workflow</groupId>
@@ -162,7 +161,15 @@
 				<version>${org.imixs.office.version}</version>
 				<type>war</type>
 			</dependency>
-			
+
+
+			<dependency>
+				<groupId>com.imixs.workflow</groupId>
+				<artifactId>imixs-office-workflow-util</artifactId>
+				<version>${org.imixs.office.version}</version>
+				<scope>provided</scope>
+			</dependency>
+
 			<!-- Apache Lucene -->
 			<dependency>
 				<groupId>org.apache.lucene</groupId>
@@ -195,6 +202,13 @@
 			<dependency>
 				<groupId>org.imixs.workflow</groupId>
 				<artifactId>imixs-archive-api</artifactId>
+				<version>${org.imixs.archive.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<!-- Imxixs-Archive Documents -->
+			<dependency>
+				<groupId>org.imixs.workflow</groupId>
+				<artifactId>imixs-archive-documents</artifactId>
 				<version>${org.imixs.archive.version}</version>
 				<scope>provided</scope>
 			</dependency>
@@ -238,7 +252,7 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>6.0</version>
+			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- JUnit Tests -->
@@ -248,5 +262,11 @@
 			<version>4.8.1</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
-</project>
+</project>	
