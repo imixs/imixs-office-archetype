@@ -19,7 +19,8 @@ services:
       POSTGRES_PASSWORD: "adminadmin"
       POSTGRES_CONNECTION: "jdbc:postgresql://db/${rootArtifactId}"
       TZ: "CET" 
-      LANG: "en_US.UTF-8"  
+      LANG: "en_US.UTF-8"
+      MAILGATEWAY: "localhost"
     ports:
       - "8080:8080"
       - "9990:9990"
