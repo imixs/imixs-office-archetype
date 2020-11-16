@@ -121,11 +121,11 @@
 	</profiles>
 	<build>
 		<plugins>
-
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.6</version>
 				<configuration>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<webResources>
 						<resource>
 							<filtering>true</filtering>
@@ -180,6 +180,11 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-workflow-index-lucene</artifactId>
+			<scope>compile</scope>
+		</dependency>
 
 		<!-- Marty -->
 		<dependency>
@@ -192,30 +197,6 @@
 			<groupId>org.imixs.marty</groupId>
 			<artifactId>imixs-marty-util</artifactId>
 			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- Apache Lucene -->
-		<dependency>
-			<groupId>org.apache.lucene</groupId>
-			<artifactId>lucene-core</artifactId>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.lucene</groupId>
-			<artifactId>lucene-analyzers-common</artifactId>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.lucene</groupId>
-			<artifactId>lucene-queryparser</artifactId>
-			<scope>compile</scope>
-		</dependency>
-
-		<!-- Imixs-Archive -->
-		<dependency>
-			<groupId>org.imixs.workflow</groupId>
-			<artifactId>imixs-archive-api</artifactId>
 			<scope>compile</scope>
 		</dependency>
 		
@@ -232,12 +213,12 @@
 			<scope>compile</scope>
 		</dependency>
 		
-		<!-- QR-Code service -->
+		<!-- Imixs-Archive -->
 		<dependency>
 			<groupId>org.imixs.workflow</groupId>
-			<artifactId>imixs-adapters-qrcode</artifactId>
-			<scope>runtime</scope>
-		</dependency> 
+			<artifactId>imixs-archive-api</artifactId>
+			<scope>compile</scope>
+		</dependency>		
 		
 		<!-- Imixs-Documents / Tika Service (optional) 
 		<dependency>

@@ -1,11 +1,5 @@
-FROM imixs/wildfly:1.2.7
-
-# Setup configuration
-COPY ./src/docker/configuration/imixsrealm.properties ${WILDFLY_CONFIG}/
-COPY ./src/docker/configuration/standalone.xml ${WILDFLY_CONFIG}/
-
-# OPTIONAL: copy the standalone.conf file for custom VM setup (e.g. heap size)
-#COPY ./src/docker/configuration/standalone.conf ${WILDFLY_HOME}/bin/
+FROM imixs/imixs-office-workflow:4.3.1
 
 # Deploy artefact
-COPY ./*-app/target/*-app-*.war ${WILDFLY_DEPLOYMENT}/
+RUN rm -r /opt/jboss/wildfly/standalone/deployments/*
+COPY ./*-app/target/*.war /opt/jboss/wildfly/standalone/deployments/
