@@ -141,7 +141,7 @@
 					<!-- We exclude libs form the parent WAR artifact -->
 					<overlays>
 						<overlay>
-							<groupId>com.imixs.workflow</groupId>
+							<groupId>org.imixs.workflow</groupId>
 							<artifactId>imixs-office-workflow-app</artifactId>
 							<excludes>
 								<exclude>WEB-INF/lib/*.jar</exclude>
@@ -202,13 +202,13 @@
 		
 		<!-- Imixs-Office-Workflow -->
 		<dependency>
-			<groupId>com.imixs.workflow</groupId>
+			<groupId>org.imixs.workflow</groupId>
 			<artifactId>imixs-office-workflow-app</artifactId>
 			<type>war</type>
 		</dependency>
 		
 		<dependency>
-			<groupId>com.imixs.workflow</groupId>
+			<groupId>org.imixs.workflow</groupId>
 			<artifactId>imixs-office-workflow-util</artifactId>
 			<scope>compile</scope>
 		</dependency>

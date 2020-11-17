@@ -59,7 +59,7 @@ To create a new maven project from an archetype you can use the Eclipse IDE with
 1. From the main menue choose 'File -> New -> other'
 2. Select 'Maven -> Maven Project' and click next
 3. Leave the default creation setup and click next again
-4. Now search for the Imixs archetype by entering 'com.imixs.workflow'. Eclipse will search the repository for the latest archetype
+4. Now search for the Imixs archetype by entering 'org.imixs.workflow'. Eclipse will search the repository for the latest archetype
 5. Click next to setup your project, choose a groupID and artifactID
 6. Click finish to create the project
 
