@@ -24,33 +24,7 @@ _Imixs-Office-Workflow_ can be build with maven. It is recommended that you have
 When you met the prerequisites, then you can start with your custom build. As _Imixs-Office-Workflow_ is based on Maven even the custom build is created by a Maven Archetype. 
  You can change the behavior and layout of your custom build without conflicting with any updates made by the _Imixs-Office-Workflow_  project. Also you can easily upgrade to any new version.
 
-### Add the Imixs Maven repository
-Before you can create a custom build from the imixs-office-archetype you need to add the Imixs Repository server to your maven configuration. Open your maven settings.xml ([USERHOME]/.m2/settings.xml) and add the imixs server to your default maven profile configuration section:
 
-
-     ......
-     <profiles>
-            <profile>
-                <id>default</id>
-                 <repositories>          
-                    <!-- Imixs Maven Repository -->
-                    <repository>
-                      <id>imixs-mvn-repo</id>
-                      <url>https://raw.githubusercontent.com/imixs/imixs-mvn-repo/master/</url>
-                      <snapshots>
-                        <enabled>false</enabled>
-                        <updatePolicy>always</updatePolicy>
-                      </snapshots>
-                    </repository>
-                </repositories>
-            </profile>
-        </profiles>
-        <activeProfiles>
-            <activeProfile>default</activeProfile>
-        </activeProfiles>
-    .....
-
-Now you can create a new maven project based on the latest version of the archetype
 
 ### Creating a custom build using Eclipse
 
