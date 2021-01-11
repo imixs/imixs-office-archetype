@@ -1,4 +1,4 @@
-FROM imixs/imixs-office-workflow:4.3.1
+FROM imixs/imixs-office-workflow:4.4.0
 
 # Deploy artefact
 RUN rm -r /opt/jboss/wildfly/standalone/deployments/*
