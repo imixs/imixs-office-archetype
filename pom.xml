@@ -109,7 +109,7 @@
 					<releaseProfiles>release</releaseProfiles>
 					<goals>deploy</goals>
 				</configuration>
-			</plugin>
+			</plugin>			
 			<!-- release to Maven central -->
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
@@ -120,6 +120,7 @@
 					<serverId>ossrh</serverId>
 					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+					<stagingProgressTimeoutMinutes>15</stagingProgressTimeoutMinutes>
 				</configuration>
 			</plugin>
 
@@ -156,7 +157,6 @@
 
 
 	<profiles>
-		<!-- Activate using the release property -->
 		<profile>
 			<id>release</id>
 			<build>
