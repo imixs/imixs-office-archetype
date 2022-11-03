@@ -3,7 +3,7 @@
 
 	<groupId>org.imixs.workflow</groupId>
 	<artifactId>imixs-office-archetype</artifactId>
-	<version>4.0.1-SNAPSHOT</version>
+	<version>4.0.1</version>
 	<packaging>maven-archetype</packaging>
 	<name>imixs-office-archetype</name>
 	<description>The Mave Core Archetype for Imixs-Office-Workflow</description>
@@ -45,7 +45,7 @@
 		<connection>scm:git:git@github.com:imixs/imixs-office-archetype.git</connection>
 		<developerConnection>scm:git:git@github.com:imixs/imixs-office-archetype.git</developerConnection>
 		<url>https://github.com/imixs/imixs-office-archetype/</url>
-		<tag>HEAD</tag>
+		<tag>imixs-office-archetype-4.0.1</tag>
 	</scm>
 	
 
