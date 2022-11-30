@@ -63,6 +63,7 @@
 					<directory>src/main/webapp/WEB-INF/</directory>
 					<includes>
 						<include>faces-config-custom.xml</include>
+						<include>beans.xml</include>
 					</includes>
 				</fileSet>				
 				<fileSet filtered="true" encoding="UTF-8">
