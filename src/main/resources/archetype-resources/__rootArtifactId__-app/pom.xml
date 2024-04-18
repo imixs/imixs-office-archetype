@@ -140,9 +140,8 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>3.2.1</version>
+				<version>3.3.2</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<webResources>
@@ -170,7 +169,6 @@
 				</configuration>
 			</plugin>
 
-
 			<plugin>
 				<groupId>org.imixs.maven</groupId>
 				<artifactId>manik-hotdeploy-maven-plugin</artifactId>
@@ -188,8 +186,8 @@
 					<autodeployments>
 						<deployment>
 							<!-- wildcard deployment -->
-							<source>target/imixs-office-workflow.war</source>
-							<target>../docker/deployments/</target>
+							<source>target/*.{war,ear,jar}</source>
+							<target>../docker/deployments</target>
 							<unpack>true</unpack>
 						</deployment>
 					</autodeployments>
@@ -243,7 +241,6 @@
 		<dependency>
 			<groupId>org.imixs.workflow</groupId>
 			<artifactId>imixs-workflow-index-lucene</artifactId>
-			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
 
@@ -275,12 +272,6 @@
 			<scope>compile</scope>
 		</dependency>		
 		
-		<!-- Imixs-Documents / Tika Service (optional) 
-		<dependency>
-			<groupId>org.imixs.workflow</groupId>
-			<artifactId>imixs-archive-documents</artifactId>
-			<scope>compile</scope>
-		</dependency>	
-		-->	
+		
 	</dependencies>
 </project>

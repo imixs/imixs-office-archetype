@@ -26,6 +26,7 @@
 			<directory></directory>
 			<includes>
 				<include>.gitignore</include>
+				<include>devi</include>
 				<include>Dockerfile</include>
 				<include>docker-compose.yml</include>
 			</includes>
