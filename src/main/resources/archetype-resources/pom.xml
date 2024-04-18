@@ -14,37 +14,29 @@
 
 
 	<properties>
-		<!-- <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> 
-			because of resource filtering is enabled we can not use UTF-8 for some strange 
-			reasons. When setting sourceEncoding to ISO-8859-1 the special german charcters 
-			works fine -->
-		<project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-
+		<java.source>11</java.source>
+		<java.target>11</java.target>
 		<!-- Build Time -->
 		<org.imixs.build.timestamp>${maven.build.timestamp}</org.imixs.build.timestamp>
 		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
 
-		<org.imixs.workflow.version>5.2.15</org.imixs.workflow.version>
-		<org.imixs.marty.version>4.2.1</org.imixs.marty.version>
-		<org.imixs.office.version>4.5.2</org.imixs.office.version>
-		<org.imixs.adapters.version>2.3.0</org.imixs.adapters.version>
-		<org.imixs.archive.version>2.2.13</org.imixs.archive.version>
-		<org.imixs.melman.version>1.0.21</org.imixs.melman.version>
-		<microprofile.version>2.2</microprofile.version>
-		<!-- 
+		<!-- Dependency Versions -->
+		<org.imixs.workflow.version>5.2.20-SNAPSHOT</org.imixs.workflow.version>
+		<org.imixs.archive.version>2.2.12</org.imixs.archive.version>
+		<org.imixs.office.version />
+		<org.imixs.marty.version>4.2.3</org.imixs.marty.version>
+		<org.imixs.mock.version>5.2.0</org.imixs.mock.version>
+		<!-- 2.2 -->
+		<microprofile.version>3.3</microprofile.version>
 		<net.sf.saxon.version>9.9.1-4</net.sf.saxon.version>
-		<org.imixs.microservice.version>2.0.6</org.imixs.microservice.version>
-		<apache.poi.version>4.0.0</apache.poi.version>
-		<apache.pdfbox.version>[2.0.15,)</apache.pdfbox.version>
-		<apache.tika.version>[1.20,)</apache.tika.version>
-   	    -->
+
 		<custom.webResources>src/main/webapp</custom.webResources>
 		
 		<!-- Environment Settings -->
 		<imixs-office.contextroot>/</imixs-office.contextroot>
 		<imixs-office.realm>imixsrealm</imixs-office.realm>
 		<imixs-office.jta-data-source>jdbc/office</imixs-office.jta-data-source>
-		<imixs-office.IndexDir>lucene/office-index</imixs-office.IndexDir>
+		<imixs-office.IndexDir>lucene/office-workflow-index</imixs-office.IndexDir>
 		<imixs-office.applicationname>${rootArtifactId}</imixs-office.applicationname>
 
 		<imixs-mail-res-ref-name>java:/mail/org.imixs.workflow.mail</imixs-mail-res-ref-name>
@@ -98,12 +90,14 @@
 			</resource>
 		</resources>
 		<plugins>
+
+			<!-- use JDK settings for compiling -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>3.8.1</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${java.source}</source>
+					<target>${java.target}</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -196,20 +190,50 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>7.0</version>
+			<version>8.0</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- JDK 11 - XML Bind -->
+		<dependency>
+		    <groupId>jakarta.xml.bind</groupId>
+		    <artifactId>jakarta.xml.bind-api</artifactId>
+		    <version>2.3.3</version>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<!-- Microprofile -->
+		<dependency>
+			<groupId>org.eclipse.microprofile</groupId>
+			<artifactId>microprofile</artifactId>
+			<version>${microprofile.version}</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+
 		<!-- JUnit Tests -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
+			<version>4.13.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.9.5</version>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.27</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-rt-rs-client</artifactId>
+			<version>3.4.0</version>
+			<!-- 3.0.15 -->
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-melman</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

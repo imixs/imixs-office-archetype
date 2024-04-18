@@ -12,6 +12,23 @@
 	<name>Imixs Office Workflow App</name>
 
 	<profiles>
+
+		<profile>
+			<id>build</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>3.2.1</version>
+						<configuration>
+							<outputDirectory>build/</outputDirectory>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
 		<profile>
 			<id>docker</id>
 			<build>
@@ -44,8 +61,9 @@
 			</build>
 		</profile>
 
+
 		<profile>
-			<id>docker-build</id>
+			<id>debug</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -61,7 +79,7 @@
 										<exec executable="docker">
 											<arg value="build" />
 											<arg value="-t" />
-											<arg value="imixs/${imixs-office.applicationname}:${project.version}" />
+											<arg value="imixs/${imixs-office.applicationname}" />
 											<arg value="../." />
 										</exec>
 									</target>
@@ -122,8 +140,9 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.6</version>
+				<version>3.2.1</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<webResources>
@@ -150,8 +169,48 @@
 					</overlays>
 				</configuration>
 			</plugin>
+
+
+			<plugin>
+				<groupId>org.imixs.maven</groupId>
+				<artifactId>manik-hotdeploy-maven-plugin</artifactId>
+				<version>2.0.0</version>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<!-- List Source and Target folders for Autodeploy and Hotdeploy -->
+					<autodeployments>
+						<deployment>
+							<!-- wildcard deployment -->
+							<source>target/imixs-office-workflow.war</source>
+							<target>../docker/deployments/</target>
+							<unpack>true</unpack>
+						</deployment>
+					</autodeployments>
+					<hotdeployments>
+						<deployment>
+							<source>src/main/webapp</source>
+							<target>../docker/deployments/imixs-office-workflow.war</target>
+						</deployment>
+					</hotdeployments>
+
+				</configuration>
+			</plugin>
 		</plugins>
-				<finalName>office-workflow-app</finalName>
+
+		<finalName>imixs-office-workflow</finalName>
+
+		<testResources>
+			<testResource>
+				<directory>${project.basedir}/../src/import</directory>
+			</testResource>
+		</testResources>
 	</build>
 	
 	
@@ -184,6 +243,7 @@
 		<dependency>
 			<groupId>org.imixs.workflow</groupId>
 			<artifactId>imixs-workflow-index-lucene</artifactId>
+			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
 
