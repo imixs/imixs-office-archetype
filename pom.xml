@@ -3,7 +3,7 @@
 
 	<groupId>org.imixs.workflow</groupId>
 	<artifactId>imixs-office-archetype</artifactId>
-	<version>5.0.0-SNAPSHOT</version>
+	<version>4.0.2-SNAPSHOT</version>
 	<packaging>maven-archetype</packaging>
 	<name>imixs-office-archetype</name>
 	<description>The Mave Core Archetype for Imixs-Office-Workflow</description>
