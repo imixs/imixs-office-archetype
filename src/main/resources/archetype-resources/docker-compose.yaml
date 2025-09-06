@@ -1,0 +1,68 @@
+services:
+  #######################
+  # PostgreSQL
+  #######################
+  db:
+    image: postgres:17.4
+    environment:
+      POSTGRES_PASSWORD: adminadmin
+      POSTGRES_DB: office
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+
+  #######################
+  # Imixs-Office-Workflow - Custom Build
+  #######################
+  app:
+    image: imixs/${rootArtifactId}
+    depends_on:
+      - db
+    environment:
+      JAVA_OPTS: "-Dnashorn.args=--no-deprecation-warning"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "adminadmin"
+      POSTGRES_CONNECTION: "jdbc:postgresql://db/office"
+      TZ: "Europe/Berlin"
+      LANG: "en_US.UTF-8"
+      MAILGATEWAY: "localhost"
+      ASYNCEVENT_PROCESSOR_ENABLED: "true"
+      ASYNCEVENT_PROCESSOR_INITIALDELAY: "30000"
+      # Metrics
+      METRICS_ENABLED: "true"
+      # OCR
+      OCR_SERVICE_ENDPOINT: "http://tika:9998/tika"
+      OCR_SERVICE_MODE: "MODEL"
+      #OCR_STRATEGY: "NO_OCR, OCR_ONLY, OCR_AND_TEXT_EXTRACTION, AUTO (default)"
+      OCR_STRATEGY: "AUTO"
+      # Collabora integration
+      # WOPI_PUBLIC_ENDPOINT: "http://localhost:9980"
+      # WOPI_DISCOVERY_ENDPOINT: "http://collabora:9980/hosting/discovery"
+      # WOPI_HOST_ENDPOINT: "http://imixs-documents:8080/api/wopi/"
+      # COLLABORA_CONVERTER_URL: "http://collabora:9980/lool/convert-to/"
+
+      # Imixs-AI
+      # Optional configured via imixs.properties
+      # LLM_SERVICE_ENDPOINT: "https://llama.foo/"
+      # LLM_SERVICE_ENDPOINT_USER: "admin"
+      # LLM_SERVICE_ENDPOINT_PASSWORD: "xxxx"
+
+
+    ports:
+      - "8080:8080"
+      - "9990:9990"
+      - "8787:8787"
+    volumes:
+      - ./deployments:/opt/jboss/wildfly/standalone/deployments/
+      - ./import_examples:/opt/jboss/import_examples/
+
+  #######################
+  # Imixs Admin Client
+  #######################
+  imixsadmin:
+    image: imixs/imixs-admin
+    ports:
+      - "8888:8080"
+
+      
+volumes:
+  dbdata:       

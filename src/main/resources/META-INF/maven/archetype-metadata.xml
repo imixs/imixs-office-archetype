@@ -11,6 +11,13 @@
 
 	<fileSets>
 		<fileSet encoding="UTF-8">
+			<directory>src</directory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
+		<!-- 
+		<fileSet encoding="UTF-8">
 			<directory>src/docker</directory>
 			<includes>
 				<include>**/*</include>
@@ -22,16 +29,30 @@
 				<include>**/*</include>
 			</includes>
 		</fileSet>
+		-->
 		<fileSet filtered="true" encoding="UTF-8">
 			<directory></directory>
 			<includes>
 				<include>.gitignore</include>
 				<include>devi</include>
 				<include>Dockerfile</include>
-				<include>docker-compose.yml</include>
+				<include>Dockerfile-debug</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>docker</directory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>.vscode</directory>
+			<includes>
+				<include>**/*</include>
 			</includes>
 		</fileSet>
 	</fileSets>
+	<!-- 
 	<modules>
 		<module id="${rootArtifactId}-app" dir="__rootArtifactId__-app"
 			name="${rootArtifactId}-app">
@@ -82,4 +103,5 @@
 			</fileSets>
 		</module>
 	</modules>
+-->
 </archetype-descriptor>

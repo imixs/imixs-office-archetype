@@ -1,54 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>${groupId}</groupId>
 	<artifactId>${artifactId}</artifactId>
 	<version>${version}</version>
-	<packaging>pom</packaging>
+	<packaging>war</packaging>
 	<name>Imixs Office Workflow - Custom Build</name>
-
-	<modules>
-		<module>${rootArtifactId}-app</module>
-	</modules>
 
 
 	<properties>
-		<java.source>11</java.source>
-		<java.target>11</java.target>
+		<java.source>17</java.source>
+		<java.target>17</java.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-		<!-- Build Time -->
-		<org.imixs.build.timestamp>${maven.build.timestamp}</org.imixs.build.timestamp>
-		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
-
 		<!-- Dependency Versions -->
 		<jakarta.version>10.0.0</jakarta.version>
-		<org.imixs.office.version>5.0.0-SNAPSHOT</org.imixs.office.version>
-		<org.imixs.workflow.version>6.0.4-SNAPSHOT</org.imixs.workflow.version>
-		<org.imixs.marty.version>5.0.0</org.imixs.marty.version>
-		<org.imixs.archive.version>3.0.0</org.imixs.archive.version>
-		<org.imixs.adapters.version>3.0.0-SNAPSHOT</org.imixs.adapters.version>
-		<org.imixs.ml.version>2.0.0</org.imixs.ml.version>
-		<microprofile.version>3.3</microprofile.version>
-		<net.sf.saxon.version>9.9.1-4</net.sf.saxon.version>
-
-		<custom.webResources>src/main/webapp</custom.webResources>
-		
-		<!-- Environment Settings -->
-		<imixs-office.contextroot>/</imixs-office.contextroot>
-		<imixs-office.realm>imixsrealm</imixs-office.realm>
-		<imixs-office.jta-data-source>jdbc/office</imixs-office.jta-data-source>
-		<imixs-office.IndexDir>lucene/office-workflow-index</imixs-office.IndexDir>
-		<imixs-office.applicationname>${rootArtifactId}</imixs-office.applicationname>
-
-		<imixs-mail-res-ref-name>java:/mail/org.imixs.workflow.mail</imixs-mail-res-ref-name>
-
-		<!-- Wildfly unpack war -->
-    	<custom.unpackTypes>war</custom.unpackTypes>
-    	
-    	<imixs-office.applicationname>${rootArtifactId}</imixs-office.applicationname>
+		<microprofile.version>6.0</microprofile.version>
+		<org.imixs.office.version>5.1.4-SNAPSHOT</org.imixs.office.version>
+		<!-- test dependencies -->
+		<junit.jupiter.version>5.9.2</junit.jupiter.version>
+		<mockito.version>5.8.0</mockito.version>
+		<org.imixs.mock.version>6.1.0</org.imixs.mock.version>
+		<imixs-office.applicationname>${artifactId}</imixs-office.applicationname>
 	</properties>
 
 	<repositories>
@@ -71,20 +46,41 @@
 
 	<profiles>
 		<profile>
-			<id>docker</id>
-			<!-- build latest - see ear module for details -->
+			<id>debug</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<version>1.8</version>
+						<executions>
+							<execution>
+								<phase>install</phase>
+								<configuration>
+									<target>
+										<exec executable="docker">
+											<arg value="build" />
+											<arg value="-f" />
+											<arg value="./Dockerfile-debug" />
+											<arg value="-t" />
+											<arg value="imixs/${imixs-office.applicationname}" />
+											<arg value="./." />
+										</exec>
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
 		</profile>
-		<profile>
-			<id>docker-build</id>
-			<!-- build current version local - see ear module for details -->
-		</profile>
-		<profile>
-			<id>docker-push</id>
-			<!-- build and push to repp - see ear module for details -->
-		</profile>
+
 	</profiles>
-	
-	
+
+
 	<build>
 		<resources>
 			<!-- enable resource filtering for multi language version -->
@@ -112,121 +108,26 @@
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.3.1</version>
+				<configuration>
+					<overlays>
+						<overlay>
+							<groupId>org.imixs.workflow</groupId>
+							<artifactId>imixs-office-workflow-app</artifactId>
+						</overlay>
+					</overlays>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
 	<dependencyManagement>
 		<dependencies>
 			<!-- Imixs Workflow -->
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-workflow-core</artifactId>
-			<type>jar</type>
-				<version>${org.imixs.workflow.version}</version>
-			<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-workflow-engine</artifactId>
-			<type>jar</type>
-				<version>${org.imixs.workflow.version}</version>
-			<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-			<artifactId>imixs-workflow-jax-rs</artifactId>
-			<type>jar</type>
-				<version>${org.imixs.workflow.version}</version>
-			<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-			<artifactId>imixs-workflow-faces</artifactId>
-			<type>jar</type>
-				<version>${org.imixs.workflow.version}</version>
-			<scope>compile</scope>
-			</dependency>
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-workflow-index-lucene</artifactId>
-				<version>${org.imixs.workflow.version}</version>
-			</dependency>
 
-			<!-- Marty -->
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-marty</artifactId>
-				<type>jar</type>
-				<version>${org.imixs.marty.version}</version>
-				<scope>compile</scope>
-			</dependency>
-
-		<!-- Imixs-Office-Workflow Overlay -->
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-office-workflow-app</artifactId>
-				<version>${org.imixs.office.version}</version>
-				<type>war</type>
-			</dependency>
-
-
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-office-workflow-util</artifactId>
-				<scope>compile</scope>
-				<version>${org.imixs.office.version}</version>
-			</dependency>
-
-
-
-			<!-- Imixs-Archive -->
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-archive-api</artifactId>
-				<version>${org.imixs.archive.version}</version>
-			<scope>compile</scope>
-			</dependency>
-			<!-- Imxixs-Archive Documents -->
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-archive-documents</artifactId>
-				<version>${org.imixs.archive.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			<!-- ODF -->
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-adapters-odf</artifactId>
-				<version>${org.imixs.adapters.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			<!-- Imixs-Wopi -->
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-adapters-wopi</artifactId>
-				<version>${org.imixs.adapters.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			<!-- SEPA Adapter -->
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-adapters-sepa</artifactId>
-				<version>${org.imixs.adapters.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			<!-- POI Adapter -->
-			<dependency>
-				<groupId>org.imixs.workflow</groupId>
-				<artifactId>imixs-adapters-poi</artifactId>
-				<version>${org.imixs.adapters.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			<!-- XSL 2.0 support -->
-			<dependency>
-				<groupId>net.sf.saxon</groupId>
-				<artifactId>Saxon-HE</artifactId>
-				<version>${net.sf.saxon.version}</version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
@@ -238,7 +139,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		
 		<!-- Microprofile -->
 		<dependency>
 			<groupId>org.eclipse.microprofile</groupId>
@@ -248,17 +148,67 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- JUnit Tests -->
+		<!-- Imixs-Office-Workflow Overlay -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.8.1</version>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-office-workflow-app</artifactId>
+			<type>war</type>
+			<version>${org.imixs.office.version}</version>
+		</dependency>
+
+		<!-- Testing -->
+
+		<!-- JUnit 5 Dependencies -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>${junit.jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Mockito Dependencies -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.9.5</version>
+			<artifactId>mockito-junit-jupiter</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>org.eclipse.parsson</groupId>
+			<artifactId>jakarta.json</artifactId>
+			<version>1.1.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>3.0.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>3.0.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Imixs Mock -->
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-mock</artifactId>
+			<version>${org.imixs.mock.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
