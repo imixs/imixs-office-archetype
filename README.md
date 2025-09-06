@@ -31,7 +31,7 @@ To create a new maven project from an archetype you can use the maven commandlin
 $ mvn archetype:generate\
     -DarchetypeGroupId=org.imixs.workflow\
     -DarchetypeArtifactId=imixs-office-archetype\
-    -DarchetypeVersion=5.1.0-SNAPSHOT
+    -DarchetypeVersion=5.1.0
 ```
 
 The result will be created in a directory structure like this:
