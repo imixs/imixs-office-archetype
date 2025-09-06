@@ -33,6 +33,12 @@
 			</includes>
 		</fileSet>
 		<fileSet filtered="true" encoding="UTF-8">
+			<directory>workflow</directory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
 			<directory>.vscode</directory>
 			<includes>
 				<include>**/*</include>
