@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.imixs.workflow</groupId>
@@ -81,26 +83,55 @@
 			</snapshots>
 		</repository>
 	</repositories>
+
+
+	<properties>
+		<java.source>11</java.source>
+		<java.target>11</java.target>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.release>11</maven.compiler.release>
+	</properties>
+
 	<build>
 		<extensions>
 			<extension>
 				<groupId>org.apache.maven.archetype</groupId>
 				<artifactId>archetype-packaging</artifactId>
-				<version>3.0.1</version>
+				<version>3.2.1</version>
 			</extension>
 		</extensions>
+
 
 		<pluginManagement>
 			<plugins>
 				<plugin>
 					<artifactId>maven-archetype-plugin</artifactId>
-					<version>3.0.1</version>
+					<version>3.2.1</version>
+					<configuration>
+						<useDefaultExcludes>false</useDefaultExcludes>
+						<preserveFileExtensions>true</preserveFileExtensions>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 
 		<plugins>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.3.1</version>
+				<configuration>
+					<delimiters>
+						<delimiter>${*}</delimiter>
+					</delimiters>
+					<useDefaultDelimiters>false</useDefaultDelimiters>
+					<supportMultiLineFiltering>true</supportMultiLineFiltering>
+					<escapeWindowsPaths>false</escapeWindowsPaths>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
 			<!-- use JDK settings for compiling -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

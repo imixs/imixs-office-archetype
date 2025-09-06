@@ -43,7 +43,7 @@ fi
 
 if [[ "$(strip_dash $1)" == "build" ]]; then
     echo " Build and Autodeploy..."
-    mvn clean install -DskipTests
+    mvn clean install -Pdebug -DskipTests
 fi
 
 if [[ "$(strip_dash $1)" == "test" ]]; then

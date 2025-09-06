@@ -16,20 +16,6 @@
 				<include>**/*</include>
 			</includes>
 		</fileSet>
-		<!-- 
-		<fileSet encoding="UTF-8">
-			<directory>src/docker</directory>
-			<includes>
-				<include>**/*</include>
-			</includes>
-		</fileSet>
-		<fileSet encoding="UTF-8">
-			<directory>src/workflow</directory>
-			<includes>
-				<include>**/*</include>
-			</includes>
-		</fileSet>
-		-->
 		<fileSet filtered="true" encoding="UTF-8">
 			<directory></directory>
 			<includes>
@@ -37,6 +23,7 @@
 				<include>devi</include>
 				<include>Dockerfile</include>
 				<include>Dockerfile-debug</include>
+				<include>docker-compose.yaml</include>
 			</includes>
 		</fileSet>
 		<fileSet filtered="true" encoding="UTF-8">
@@ -52,56 +39,5 @@
 			</includes>
 		</fileSet>
 	</fileSets>
-	<!-- 
-	<modules>
-		<module id="${rootArtifactId}-app" dir="__rootArtifactId__-app"
-			name="${rootArtifactId}-app">
-			<fileSets>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/java</directory>
-					<includes>
-						<include>**/*</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/resources</directory>
-					<includes>
-						<include>**/*</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/resources/bundle</directory>
-					<includes>
-						<include>app_*.properties</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/webapp/layout/css</directory>
-					<includes>
-						<include>custom.css</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/main/webapp/WEB-INF/</directory>
-					<includes>
-						<include>faces-config-custom.xml</include>
-						<include>beans.xml</include>
-					</includes>
-				</fileSet>				
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/test/java</directory>
-					<includes>
-						<include>**/*</include>
-					</includes>
-				</fileSet>
-				<fileSet filtered="true" encoding="UTF-8">
-					<directory>src/test/resources</directory>
-					<includes>
-						<include>**/*</include>
-					</includes>
-				</fileSet>
-			</fileSets>
-		</module>
-	</modules>
--->
+
 </archetype-descriptor>
