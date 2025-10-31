@@ -23,6 +23,7 @@ strip_dash() {
 # Verify params
 if [[ "$(strip_dash $1)" == "setup" ]]; then
     echo " Dev Setup..."
+    rm -R docker/deployments/
     sudo chmod -R 777 docker/deployments/
     echo " starting dev enrvionment..."
     mvn clean install -Pdebug

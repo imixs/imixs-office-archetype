@@ -23,14 +23,26 @@
 		<!-- Build Time -->
 		<org.imixs.build.timestamp>${maven.build.timestamp}</org.imixs.build.timestamp>
 		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+		<jakarta.faces.project_stage>Production</jakarta.faces.project_stage>
 
 		<!-- Dependency Versions -->
 		<jakarta.version>10.0.0</jakarta.version>
-		<jakarta.faces.project_stage>Production</jakarta.faces.project_stage>
 		<microprofile.version>6.0</microprofile.version>
-		<org.imixs.workflow.version>6.2.3</org.imixs.workflow.version>
+
+		<org.imixs.workflow.version>6.2.4</org.imixs.workflow.version>
+		<org.imixs.data.version>1.0.1</org.imixs.data.version>
+		<org.imixs.office.version>5.1.5</org.imixs.office.version>
 		<org.imixs.marty.version>5.1.0</org.imixs.marty.version>
-		<org.imixs.office.version>5.1.4-SNAPSHOT</org.imixs.office.version>
+		<org.imixs.adapter.version>3.2.1</org.imixs.adapter.version>
+		<org.imixs.ai.version>1.1.2</org.imixs.ai.version>
+		<org.imixs.metrics.version>1.0.0</org.imixs.metrics.version>
+		<org.imixs.signature.version>1.0.0</org.imixs.signature.version>
+		<net.sf.saxon.version>9.9.1-4</net.sf.saxon.version>
+		<apache.pdfbox.version>2.0.24</apache.pdfbox.version>
+		<org.imixs.adapters.version>3.2.1</org.imixs.adapters.version>
+		<apache.poi.version>4.0.0</apache.poi.version>
+		<apache.pdfbox.version>2.0.24</apache.pdfbox.version>
+		<net.sf.saxon.version>9.9.1-4</net.sf.saxon.version>
 
 
 		<!-- test dependencies -->
@@ -48,19 +60,15 @@
 	</properties>
 
 	<repositories>
-		<!-- Sonatype Snapshot repository -->
 		<repository>
-			<id>sonatype-snaptshots</id>
-			<name>Sonatype Snapshot repository</name>
-			<url>http://oss.sonatype.org/content/repositories/snapshots</url>
-		</repository>
-		<!-- Imixs repository -->
-		<repository>
-			<id>imixs-mvn-repo</id>
-			<url>https://raw.githubusercontent.com/imixs/imixs-mvn-repo/master/</url>
-			<snapshots>
+			<id>central-portal-snapshots</id>
+			<name>Central Portal Snapshots</name>
+			<url>https://central.sonatype.com/repository/maven-snapshots/</url>
+			<releases>
 				<enabled>false</enabled>
-				<updatePolicy>always</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
 			</snapshots>
 		</repository>
 	</repositories>
@@ -120,6 +128,8 @@
 					<target>${java.target}</target>
 				</configuration>
 			</plugin>
+
+			<!-- Testing JUnit 5 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
@@ -150,6 +160,14 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
 
 			<plugin>
 				<groupId>org.imixs.maven</groupId>
