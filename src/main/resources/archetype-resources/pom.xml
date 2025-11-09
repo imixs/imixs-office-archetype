@@ -16,19 +16,20 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<!-- Wildfly  -->
-		<custom.webResources>src/main/webapp</custom.webResources>
-		<custom.unpackTypes>war</custom.unpackTypes>
-
 		<!-- Build Time -->
 		<org.imixs.build.timestamp>${maven.build.timestamp}</org.imixs.build.timestamp>
 		<maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
 		<jakarta.faces.project_stage>Production</jakarta.faces.project_stage>
 
+		<!-- Wildfly  -->
+		<custom.webResources>src/main/webapp</custom.webResources>
+		<custom.unpackTypes>war</custom.unpackTypes>
+
 		<!-- Dependency Versions -->
 		<jakarta.version>10.0.0</jakarta.version>
 		<microprofile.version>6.0</microprofile.version>
 
+		<!-- Imixs Workflow -->
 		<org.imixs.workflow.version>6.2.4</org.imixs.workflow.version>
 		<org.imixs.data.version>1.0.1</org.imixs.data.version>
 		<org.imixs.office.version>5.1.5</org.imixs.office.version>
@@ -39,11 +40,9 @@
 		<org.imixs.signature.version>1.0.0</org.imixs.signature.version>
 		<net.sf.saxon.version>9.9.1-4</net.sf.saxon.version>
 		<apache.pdfbox.version>2.0.24</apache.pdfbox.version>
-		<org.imixs.adapters.version>3.2.1</org.imixs.adapters.version>
 		<apache.poi.version>4.0.0</apache.poi.version>
 		<apache.pdfbox.version>2.0.24</apache.pdfbox.version>
 		<net.sf.saxon.version>9.9.1-4</net.sf.saxon.version>
-
 
 		<!-- test dependencies -->
 		<junit.jupiter.version>5.9.2</junit.jupiter.version>
@@ -155,8 +154,16 @@
 							</includes>
 						</resource>
 					</webResources>
-
-
+					<overlays>
+						<!-- Exclude libs from overlay project -->
+						<overlay>
+							<groupId>org.imixs.workflow</groupId>
+							<artifactId>imixs-office-workflow-app</artifactId>
+							<excludes>
+								<exclude>WEB-INF/lib/*.jar</exclude>
+							</excludes>
+						</overlay>
+					</overlays>
 				</configuration>
 			</plugin>
 
@@ -224,6 +231,50 @@
 			<scope>provided</scope>
 		</dependency>
 
+
+		<!-- Imixs Workflow -->
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-workflow-core</artifactId>
+			<type>jar</type>
+			<version>${org.imixs.workflow.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-workflow-engine</artifactId>
+			<type>jar</type>
+			<version>${org.imixs.workflow.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-workflow-jax-rs</artifactId>
+			<type>jar</type>
+			<version>${org.imixs.workflow.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-workflow-faces</artifactId>
+			<type>jar</type>
+			<version>${org.imixs.workflow.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-workflow-index-lucene</artifactId>
+			<version>${org.imixs.workflow.version}</version>
+		</dependency>
+		<!-- Imixs-Archive -->
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-archive-api</artifactId>
+			<version>${org.imixs.archive.version}</version>
+		</dependency>
+		<!-- Marty -->
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-marty</artifactId>
+			<version>${org.imixs.marty.version}</version>
+		</dependency>
+
 		<!-- Imixs-Office-Workflow Overlay -->
 		<dependency>
 			<groupId>org.imixs.workflow</groupId>
@@ -231,6 +282,72 @@
 			<type>war</type>
 			<version>${org.imixs.office.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-office-workflow-util</artifactId>
+			<version>${org.imixs.office.version}</version>
+		</dependency>
+
+		<!-- Imixs Data -->
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-data-groups</artifactId>
+			<version>${org.imixs.data.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-data-views</artifactId>
+			<version>${org.imixs.data.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-data-documents</artifactId>
+			<version>${org.imixs.data.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-data-importer</artifactId>
+			<version>${org.imixs.data.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.pdfbox</groupId>
+			<artifactId>pdfbox</artifactId>
+			<version>${apache.pdfbox.version}</version>
+		</dependency>
+
+		<!-- Optional Adapter Libaries 
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-adapters-wopi</artifactId>
+			<version>${org.imixs.adapter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-adapters-odf</artifactId>
+			<version>${org.imixs.adapter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-adapters-sepa</artifactId>
+			<version>${org.imixs.adapter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-adapters-datev</artifactId>
+			<version>${org.imixs.adapter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.imixs.workflow</groupId>
+			<artifactId>imixs-adapters-poi</artifactId>
+			<version>${org.imixs.adapter.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.saxon</groupId>
+			<artifactId>Saxon-HE</artifactId>
+			<version>${net.sf.saxon.version}</version>
+		</dependency>
+		-->
+
 
 		<!-- Testing -->
 
@@ -260,7 +377,7 @@
 			<version>${mockito.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- Test dependencies -->
+		<!-- Jakarta EE dependencies -->
 		<dependency>
 			<groupId>org.eclipse.parsson</groupId>
 			<artifactId>jakarta.json</artifactId>
